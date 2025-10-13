@@ -39,3 +39,5 @@
     docker build -t task_scheduler .
     docker run -d -p 7540:7540 task_scheduler
     перейти по адресу: http://localhost:7540
+
+P.S. Была ошибка с ветками git. Незаметил и пушил напрямую в https://github.com/Yandex-Practicum/go_final_project.git. Создал отдельно репозиторий и туда скинул все файлы из проекта, в котором всё делал.
