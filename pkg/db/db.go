@@ -45,3 +45,10 @@ func Init(dbFile string) error {
 
 	return nil
 }
+
+func CloseDB() error {
+	if db != nil {
+		return db.Close()
+	}
+	return nil
+}

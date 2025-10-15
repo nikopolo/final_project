@@ -79,7 +79,11 @@ func NextDate(now time.Time, dstart string, repeat string) (string, error) {
 
 // запрос к /api/nextdate
 func nextDateHandler(w http.ResponseWriter, r *http.Request) {
-
+	// проверка метода
+	if r.Method != http.MethodGet {
+		http.Error(w, "wrong method", http.StatusMethodNotAllowed)
+		return
+	}
 	// параметры
 	nowParam := r.FormValue("now")
 	dateParam := r.FormValue("date")
@@ -110,6 +114,7 @@ func nextDateHandler(w http.ResponseWriter, r *http.Request) {
 	// вызов NextDate
 	next, err := NextDate(now, dateParam, repeatParam)
 	if err != nil {
+		w.Header().Set("Content-Type", "text/plain; charset=utf-8")
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}

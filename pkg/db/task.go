@@ -46,7 +46,6 @@ func Tasks(limit int) ([]*Task, error) {
 		return nil, err
 	}
 
-	// TODO !!!!
 	if tasks == nil {
 		return []*Task{}, nil
 	}

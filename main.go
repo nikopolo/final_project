@@ -10,6 +10,8 @@ import (
 func main() {
 	// проверка и запуск базы
 	err := db.Init("scheduler.db")
+	// закрытие подключения к БД
+	defer db.CloseDB()
 	if err != nil {
 		log.Fatalf("database error: %v", err)
 	}

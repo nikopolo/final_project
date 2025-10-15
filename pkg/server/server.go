@@ -26,6 +26,6 @@ func Run() error {
 		}
 	})
 
-	log.Println("Server start")
+	log.Println("Server start at port 7540")
 	return http.ListenAndServe(":7540", nil)
 }
